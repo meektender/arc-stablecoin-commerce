@@ -1,26 +1,53 @@
 # Arc Network Stablecoin Remittance Engine 🌐
-### Institutional Cross-Border B2B Payout Infrastructure Natively Utilizing Circle's CCTP & Web3 Programmable Services
+### Track 1: Best Cross-Border Payments & Remittances Experience (UAE → Global)
 
-An enterprise-grade, server-side remittance routing engine designed to eliminate the multi-billion dollar inefficiencies of legacy cross-border transaction networks. This application unifies high-velocity token delivery with automated programmatic compliance.
+An enterprise-grade, server-side remittance routing engine designed to eliminate the multi-billion dollar inefficiencies of legacy cross-border transaction networks. This application unifies high-velocity token delivery with automated programmatic compliance, optimized for high-volume expat and B2B settlement corridors (such as UAE to Global markets).
 
-## 🏛️ Why This System Is Built For Global Enterprises
-
-Traditional financial institutions cannot leverage basic Web3 protocols due to regulatory risk and fragmented network liquidity. This engine directly addresses and resolves the core enterprise bottlenecks:
-
-1. **Native Liquidity Efficiency via CCTP:** Bypasses vulnerable third-party lock-and-mint bridges. It programmatically executes `depositForBurn` directly via Circle's messenger infrastructure, ensuring risk-free 1:1 cross-chain capital settlement.
-2. **Zero Gas Friction Architecture:** Integrates structural fee handling models designed to abstract network-native token gas requirements ($ETH, $SOL), keeping corporate accounting fully isolated within predictable dollar environments.
-3. **Automated Risk Pre-Screening:** Features programmatic compliance integration pipelines, enforcing strict AML/OFAC validation checks before transactions are broadcasted to the blockchain ledger.
-4. **Autonomous Operational Lifespan Tracking:** Includes real-time asynchronous polling loops to continuously track structural lifecycle mutations from initial execution down to final transaction receipt verification (`txHash`).
-
-## 🛠️ Core Technology Matrix
-* **Backend Runtime:** Node.js (ECMAScript 2022)
-* **Web3 Infrastructure:** Circle Developer-Controlled Programmable Wallets SDK
-* **Cross-Chain Communication:** Circle Cross-Chain Transfer Protocol (CCTP)
-* **Gas Architecture:** Circle Account Abstraction Fee Delegation
+## 🏛️ System Architecture Diagram
++------------------------------------------------------------+
+|                  Enterprise Dashboard                      |
+|                        (app.js)                            |
++------------------------------+-----------------------------+
+|
+[Choice 2 or 3 Initiated]
+|
+v
++------------------------------------------------------------+
+|          🛡️ Programmatic Compliance Firewall               |
+|         (Validates Target Against AML Blacklist)           |
++------------------------------+-----------------------------+
+|
+[Risk Clear: PASSED]
+|
++------------------+------------------+
+|                                     |
+[Local Remittance]                     [Cross-Chain CCTP]
+|                                     |
+v                                     v
++-----------------------+             +-----------------------+
+|  send-remittance.js   |             |    cctp-bridge.js     |
+| (Local Wallet Payout) |             |  (depositForBurn call)|
++-----------------------+             +-----------+-----------+
+|
+[Autonomous Polling]
+|
+v
++-----------------------+
+| Real-Time Event Loop  |
+| (Extracts Tx Receipt) |
++-----------------------+
+## 🛠️ Core Technology Matrix & Selected Circle Products
+* **Blockchain Infrastructure:** Arc L1 Testnet Network Sandbox
+* **Primary Stablecoin Rail:** Circle USDC (Native Gas & Value Settlement)
+* **Cross-Chain Communication:** Circle Cross-Chain Transfer Protocol (CCTP) & Bridge Kit
+* **Programmable Wallets:** Circle Developer-Controlled Wallets SDK
 
 ## 🚀 Deployment & Local Execution
 
+1. Clone the core workspace repository:
 ```bash
-git clone https://github.com/meektender/arc-stablecoin-commerce.git
+git clone [https://github.com/meektender/arc-stablecoin-commerce.git](https://github.com/meektender/arc-stablecoin-commerce.git)
 cd arc-stablecoin-commerce
-npm install
+CIRCLE_API_KEY="your_api_key_here"
+CIRCLE_ENTITY_SECRET="your_hex_encoded_secret_here"
+node app.js

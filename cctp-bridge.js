@@ -22,12 +22,12 @@ async function main() {
             blockchain: "ARC-TESTNET", 
             contractAddress: tokenMessengerAddress,
             abiFunctionSignature: "depositForBurn(uint256,uint32,bytes32,address)",
-            abiParameters: [
-                "5000000",                                      // Amount: 5.00 USDC (6 decimals)
-                "6",                                            // Destination Domain (Arc Network Identity Code)
-                "0x000000000000000000000000d20dbecca5b821397b75ad12acc6558a6edb0b40", // Target destination wallet address
-                "0x3600000000000000000000000000000000000000"    // Target ERC20 contract token matching your token balance
-            ],
+         abiParameters: [
+    "5000000",                                      // 1. Amount
+    "6",                                            // 2. Destination Domain
+    "0x000000000000000000000000d20dbecca5b821397b75ad12acc6558a6edb0b40", // 3. Mint Recipient
+    "0x3600000000000000000000000000000000000000"    // 4. Burn Token Address
+],   
             fee: {
                 type: "level",
                 config: {
