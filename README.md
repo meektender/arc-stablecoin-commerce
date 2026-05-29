@@ -1,5 +1,8 @@
 # Arc Network Stablecoin Remittance Engine 🌐
-### Track 1: Best Cross-Border Payments & Remittances Experience (UAE → Global)
+### 📋 Submission Metadata
+- **Track:** Track 1: Best Cross-Border Payments & Remittances Experience (UAE → Global Corridor)
+- **Circle Developer Account Email:** isahuma23@gmail.com
+- **Live MVP Status:** Operational (Frontend Dashboard + Node.js Engine)
 
 An enterprise-grade, server-side remittance routing engine designed to eliminate the multi-billion dollar inefficiencies of legacy cross-border transaction networks. This application unifies high-velocity token delivery with automated programmatic compliance, optimized for high-volume expat and B2B settlement corridors (such as UAE to Global markets).
 
