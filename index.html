@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arc Stablecoin Remittance Engine</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .terminal-text { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+    <header class="border-b border-slate-900 bg-slate-950/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-sky-400 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                    <span class="text-xl">🌐</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Arc Remittance Portal</h1>
+                    <p class="text-xs font-medium text-indigo-400 tracking-wider uppercase">Track 1: UAE → Global Corridor</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-xs font-medium animate-pulse">
+                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                Arc Testnet Connected
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <div class="lg:col-span-5 flex flex-col gap-6">
+            
+            <div class="rounded-2xl border border-slate-900 bg-slate-900/40 backdrop-blur-sm p-6 hover:border-slate-800 transition duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h2 class="text-base font-semibold text-white">Wallet Infrastructure</h2>
+                        <p class="text-xs text-slate-400">Query primary developer balance states</p>
+                    </div>
+                    <button onclick="fetchBalance()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 active:scale-95 text-xs font-semibold text-slate-200 rounded-lg border border-slate-700 transition flex items-center gap-2 cursor-pointer">
+                        🔄 Check Balance
+                    </button>
+                </div>
+                <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-900 text-xs text-slate-400 flex items-center justify-between">
+                    <span>Active Circle Wallet ID:</span>
+                    <span class="terminal-text text-indigo-400 font-medium">ddd168ff...45ca9</span>
+                </div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-900 bg-slate-900/40 backdrop-blur-sm p-6 flex-1 flex flex-col gap-5 hover:border-slate-800 transition duration-300">
+                <div>
+                    <h2 class="text-base font-semibold text-white">Execution Command Rail</h2>
+                    <p class="text-xs text-slate-400">Trigger on-chain commerce movements</p>
+                </div>
+
+                <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-900 flex flex-col gap-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">Option A: Local Settlement</span>
+                        <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 text-[10px] font-medium border border-sky-500/10">Same-Chain</span>
+                    </div>
+                    <p class="text-xs text-slate-400">Disburse localized payroll payouts instantly via native stablecoin distributions.</p>
+                    <button onclick="triggerLocalRemit()" class="w-full py-2.5 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white text-xs font-semibold rounded-lg shadow-lg shadow-indigo-600/10 hover:shadow-indigo-500/20 active:scale-[0.99] transition cursor-pointer">
+                        💸 Execute Local UAE Remittance
+                    </button>
+                </div>
+
+                <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-900 flex flex-col gap-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">Option B: CCTP Multi-Chain Router</span>
+                        <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 text-[10px] font-medium border border-indigo-500/10">Cross-Chain</span>
+                    </div>
+                    <p class="text-xs text-slate-400">Initiate native 1:1 cross-border burn-and-mint mechanisms via Circle CCTP architecture.</p>
+                    <button onclick="triggerCctpRemit()" class="w-full py-2.5 bg-gradient-to-r from-sky-600 to-sky-500 hover:from-sky-500 hover:to-sky-400 text-white text-xs font-semibold rounded-lg shadow-lg shadow-sky-600/10 hover:shadow-sky-500/20 active:scale-[0.99] transition cursor-pointer">
+                        🚀 Route Cross-Chain CCTP Transfer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-7 flex flex-col min-h-[450px]">
+            <div class="flex-1 rounded-2xl border border-slate-900 bg-slate-900/30 backdrop-blur-sm p-6 flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-base font-semibold text-white">Live Execution Telemetry</h2>
+                        <p class="text-xs text-slate-400">Real-time script transaction payloads and logs</p>
+                    </div>
+                    <button onclick="clearConsole()" class="text-xs text-slate-500 hover:text-slate-300 transition cursor-pointer">Clear Console</button>
+                </div>
+
+                <div class="flex-1 bg-slate-950 rounded-xl p-5 border border-slate-900 flex flex-col relative overflow-hidden">
+                    <div id="loadingOverlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center gap-3 opacity-0 pointer-events-none transition duration-300">
+                        <div class="h-5 w-5 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
+                        <span class="text-xs font-medium text-slate-300 terminal-text">Processing core rails...</span>
+                    </div>
+                    
+                    <div id="terminalBody" class="flex-1 terminal-text text-xs text-slate-300 space-y-2 overflow-y-auto max-h-[450px] leading-relaxed whitespace-pre-wrap">
+                        <div class="text-indigo-400">💡 System booted. Ready for operation execution. Choose an action from the control panel to begin streaming logs...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-900 py-6 bg-slate-950/30 text-center text-xs text-slate-500">
+        Arc Network Stablecoin Commerce Stack Prototype • Built for Global Remittances Challenge
+    </footer>
+
+    <script>
+        const terminal = document.getElementById('terminalBody');
+        const loader = document.getElementById('loadingOverlay');
+
+        function showLoading(show) {
+            if(show) {
+                loader.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                loader.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        function appendLog(text, isError = false) {
+            const line = document.createElement('div');
+            line.className = isError ? 'text-rose-400 border-l-2 border-rose-500 pl-2 my-1' : 'text-emerald-400 border-l-2 border-emerald-500 pl-2 my-1';
+            line.textContent = text;
+            terminal.appendChild(line);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        function clearConsole() {
+            terminal.innerHTML = '<div class="text-slate-500">Console logs flushed. Awaiting pipeline actions...</div>';
+        }
+
+        async function fetchBalance() {
+            showLoading(true);
+            try {
+                appendLog('⏳ Fetching wallet balance metrics from Arc L1 network sandbox...');
+                const res = await fetch('/api/balance');
+                const data = await res.json();
+                showLoading(false);
+                if (data.success) {
+                    appendLog(data.log);
+                } else {
+                    appendLog('❌ Error running script: ' + data.error, true);
+                }
+            } catch (err) {
+                showLoading(false);
+                appendLog('❌ Network Failure connecting to server layer: ' + err.message, true);
+            }
+        }
+
+        async function triggerLocalRemit() {
+            showLoading(true);
+            try {
+                appendLog('⏳ Initializing Option 1: Processing Local UAE Payroll Distribution Engine...');
+                const res = await fetch('/api/remit/local', { method: 'POST' });
+                const data = await res.json();
+                showLoading(false);
+                if (data.success) {
+                    appendLog(data.log);
+                } else {
+                    appendLog('❌ Error during local remittance processing: ' + data.error, true);
+                }
+            } catch (err) {
+                showLoading(false);
+                appendLog('❌ Network Failure connecting to server layer: ' + err.message, true);
+            }
+        }
+
+        async function triggerCctpRemit() {
+            showLoading(true);
+            try {
+                appendLog('⏳ Initializing Option 2: Building cross-chain routing payloads via CCTP...');
+                const res = await fetch('/api/remit/cctp', { method: 'POST' });
+                const data = await res.json();
+                showLoading(false);
+                if (data.success) {
+                    appendLog(data.log);
+                } else {
+                    appendLog('❌ Error during CCTP routing sequence: ' + data.error, true);
+                }
+            } catch (err) {
+                showLoading(false);
+                appendLog('❌ Network Failure connecting to server layer: ' + err.message, true);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,10 +1,12 @@
 {
   "name": "arc-stablecoin-commerce",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
+  "description": "Arc Network Stablecoin Remittance Engine Backend & UI",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -13,14 +15,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/meektender/arc-stablecoin-commerce/issues"
-  },
-  "homepage": "https://github.com/meektender/arc-stablecoin-commerce#readme",
   "dependencies": {
-    "@circle-fin/developer-controlled-wallets": "^10.3.1",
-    "@circle-fin/w3s-pw-web-sdk": "^1.1.11",
-    "dotenv": "^17.4.2"
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
   }
 }
