@@ -20,7 +20,7 @@ Traditional financial institutions cannot leverage basic Web3 protocols due to r
 
 ## 🚀 Deployment & Local Execution
 
-1. Clone the core workspace repository:
 ```bash
-git clone [https://github.com/meektender/arc-stablecoin-commerce.git](https://github.com/meektender/arc-stablecoin-commerce.git)
+git clone https://github.com/meektender/arc-stablecoin-commerce.git
 cd arc-stablecoin-commerce
+npm install
