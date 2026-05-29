@@ -1,0 +1,26 @@
+{
+  "name": "arc-stablecoin-commerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meektender/arc-stablecoin-commerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/meektender/arc-stablecoin-commerce/issues"
+  },
+  "homepage": "https://github.com/meektender/arc-stablecoin-commerce#readme",
+  "dependencies": {
+    "@circle-fin/developer-controlled-wallets": "^10.3.1",
+    "@circle-fin/w3s-pw-web-sdk": "^1.1.11",
+    "dotenv": "^17.4.2"
+  }
+}
