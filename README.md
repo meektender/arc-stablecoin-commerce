@@ -1,44 +1,41 @@
 # Arc Network Stablecoin Remittance Engine 🌐
+
 ### 📋 Submission Metadata
 - **Track:** Track 1: Best Cross-Border Payments & Remittances Experience (UAE → Global Corridor)
-- **Circle Developer Account Email:** isahuma23@gmail.com
+- **Circle Developer Account Email:** isahumar23@gmail.com
 - **Live MVP Status:** Operational (Frontend Dashboard + Node.js Engine)
 
 An enterprise-grade, server-side remittance routing engine designed to eliminate the multi-billion dollar inefficiencies of legacy cross-border transaction networks. This application unifies high-velocity token delivery with automated programmatic compliance, optimized for high-volume expat and B2B settlement corridors (such as UAE to Global markets).
 
-## 🏛️ System Architecture Diagram
-+------------------------------------------------------------+
-|                  Enterprise Dashboard                      |
-|                        (app.js)                            |
-+------------------------------+-----------------------------+
-|
-[Choice 2 or 3 Initiated]
-|
-v
-+------------------------------------------------------------+
-|          🛡️ Programmatic Compliance Firewall               |
-|         (Validates Target Against AML Blacklist)           |
-+------------------------------+-----------------------------+
-|
-[Risk Clear: PASSED]
-|
-+------------------+------------------+
-|                                     |
-[Local Remittance]                     [Cross-Chain CCTP]
-|                                     |
-v                                     v
-+-----------------------+             +-----------------------+
-|  send-remittance.js   |             |    cctp-bridge.js     |
-| (Local Wallet Payout) |             |  (depositForBurn call)|
-+-----------------------+             +-----------+-----------+
-|
-[Autonomous Polling]
-|
-v
-+-----------------------+
-| Real-Time Event Loop  |
-| (Extracts Tx Receipt) |
-+-----------------------+
+## 🏗️ System Architecture Diagram
+
+```mermaid
+graph TD
+    %% Frontend Layer
+    A[Tailwind CSS Frontend Dashboard] -->|API Requests: GET /api/balance| B(Express API Engine)
+    A -->|API Requests: POST /api/remit/local| B
+    A -->|API Requests: POST /api/remit/cctp| B
+
+    %% Backend Layer
+    subgraph Core API Infrastructure (server.js)
+        B -->|Spawns Subprocess| C{Execution Router}
+    end
+
+    %% Execution Script Layer
+    C -->|node check-balance.js| D[Circle Balance Engine]
+    C -->|node send-remittance.js| E[Local UAE Settlement Pipeline]
+    C -->|node cctp-bridge.js| F[Circle CCTP Multi-Chain Protocol]
+
+    %% Blockchain Network Layer
+    D -->|Query Balance| G((Arc L1 Network Sandbox))
+    E -->|Broadcast Tx| G
+    F -->|Burn / Mint Router| H((Circle Token Messenger))
+    H -->|Verify State| G
+    
+    %% Telemetry Stream Loop
+    G -.->|Return Output Payload| C
+    C -.->|Stream Live Telemetry Logs| A
+
 ## 🛠️ Core Technology Matrix & Selected Circle Products
 * **Blockchain Infrastructure:** Arc L1 Testnet Network Sandbox
 * **Primary Stablecoin Rail:** Circle USDC (Native Gas & Value Settlement)
@@ -54,6 +51,7 @@ cd arc-stablecoin-commerce
 CIRCLE_API_KEY="your_api_key_here"
 CIRCLE_ENTITY_SECRET="your_hex_encoded_secret_here"
 node app.js
+
 💬 Circle Product Feedback
 1. Why we chose these products for our use case
 For a UAE-to-Global remittance network, transaction predictability and security are non-negotiable. We utilized Circle Developer-Controlled Wallets because they allow server-side automation without requiring manual end-user extension signatures, making them ideal for corporate payroll applications. We chose CCTP because it completely bypasses traditional third-party bridge lock-and-mint security risks by burning and minting native USDC 1:1 across networks.
