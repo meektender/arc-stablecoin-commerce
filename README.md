@@ -49,6 +49,7 @@ graph TD
 ```bash
 git clone [https://github.com/meektender/arc-stablecoin-commerce.git](https://github.com/meektender/arc-stablecoin-commerce.git)
 cd arc-stablecoin-commerce
+npm install
 ```
 
 2. Configure your environment variables inside a .env file or export them directly:
